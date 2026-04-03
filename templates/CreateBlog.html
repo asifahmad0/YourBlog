@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+
+{% block contant %}
+
+<div class=" w-screen h-screen flex flex-col items-center justify-center py-2">
+    <form method="post" class=" w-[100dvw] h-[100dvh] flex flex-col gap-5 border mt-[60px] p-3">
+        <h1 class="text-2xl text-primery font-bold text-center">Create Bloge</h1>
+
+        <div class=" flex flex-col gap-2">
+        <label for="headline">Headline</label>
+        <input class="border outline-none p-2" type="text" id="headline" name="headline" placeholder="User Name">
+        </div>
+        
+        <div class=" flex flex-col gap-2">
+        <label for="contant">Content</label>
+        <textarea class="border outline-none p-2" type="text" rows="15" id="contant" name="contant" placeholder="Content..."></textarea>
+        
+        </div>
+
+        <button type="submit" class="p-2 bg-primery rounded-lg text-white cursor-pointer text-center" >Submit</button>
+    </form> 
+
+
+
+</div>
+
+{% endblock %}
