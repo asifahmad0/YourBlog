@@ -11,7 +11,7 @@
     <div class="w-screen grid lg:grid-cols-4 grid-cols-1 py-2 ">
     {% if my_blog %}
     {% for blog in my_blog %}
-    <div class=" w-[300px]  overflow-hidden flex flex-col gap-2 items-center justify-between border py-2 lg:m-5 my-5">
+    <div class=" w-[300px] hover:scale-102 border-primery rounded-md overflow-hidden flex flex-col gap-2 items-center justify-between border py-2 lg:m-5 my-5">
 
       <!-- <div class="">
         <img src="" alt="">
@@ -24,7 +24,7 @@
         <div class=" text-justify">
           {{blog.contant}}
         </div>
-        <a class="px-5 py-2 bg-blue-500 text-white text-lg" href="#">Read</a>
+        <a class="px-5 py-2 bg-blue-500 text-white text-lg" href="/blog/{{blog.blogId}}">Read</a>
       </div>
     </div>
     {% endfor %}

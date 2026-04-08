@@ -129,7 +129,7 @@ def BlogCreat():
                new_blog = BlogContant(title = headline, contant = contant, auther=author)
                db.session.add(new_blog)
                db.session.commit()
-               return redirect('/')
+               return redirect('/blog/MyBlog')
           else:
                print('if not working', headline)
                print('if not working', contant)
@@ -138,25 +138,50 @@ def BlogCreat():
      return render_template('CreateBlog.html')
 
 
+@app.route('/blog/update/<int:id>', methods=['GET', 'POST'])
+@login_required
+def BlogUpdate(id):
+   
+
+   blog = BlogContant.query.filter_by( blogId = id).first()
+   if not blog.auther == session['user']:
+             return redirect('/')
+   
+   if request.method == 'POST':
+        
+        title = request.form.get('headline')
+        contant = request.form.get('contant')
+        
+        if title != '' :
+             blog.title = title
+          
+        if contant != '':
+             blog.contant = contant
+               
+
+        db.session.add(blog)
+        db.session.commit()
+
+        return redirect('/blog/MyBlog')    
+     
+   return render_template('update.html')
+
+
+
 @app.route('/blog/delete/<int:id>', methods=['GET', 'POST'])
+@login_required
 def BlogDelet(id):
-     if request.method == 'POST':
 
-          headline = request.form.get['title']
-          id = request.form.get['blogId']
-          blogDel = BlogContant.query.filter_by(blogId=id).first()
+     blogDel = BlogContant.query.filter_by(blogId=id).first()
+     if not blogDel.auther == session['user']:
+          return redirect('/')
+     db.session.delete(blogDel)
+     db.session.commit()
 
-     return 
-
-
-
+     return redirect('/blog/MyBlog')
 
 
 
-@app.route('*', methods=['Get','POST'])
-def NotFound():
-
-     return redirect('/')
 
 
 
