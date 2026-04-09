@@ -111,7 +111,7 @@ def MyBlog():
 
      my_blog = BlogContant.query.filter_by(auther =session['user'])
 
-     return render_template('Mybloge.html', my_blog=my_blog)
+     return render_template('MyBloge.html', my_blog=my_blog)
 
 
 
