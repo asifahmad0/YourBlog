@@ -16,7 +16,7 @@
         </div>
         {% else %}
         <div class=" flex items-center md:gap-5 gap-2">
-        <h3 class="text-xl font-bold text-primery">{{session.user}}</h3>
+        <h3 class="text-xl font-bold text-primery">{{session[user]}}</h3>
         <a class=" border rounded-lg bg-primery text-center text-white py-2 px-5 hover:bg-blue-500 " href="/logout">Logout</a>
         </div>
         {% endif %}
